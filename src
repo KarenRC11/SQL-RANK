@@ -1,0 +1,14 @@
+	SELECT salesperson_id,
+		 sales_amount,
+		 ROW_NUMBER() OVER (ORDER BY sales_amount) DESC AS row_number,	
+		 RANK() OVER (ORDER BY sales_amount DESC) AS rank.
+		 DENSE_RANK() OVER (ORDER BY sales_amount DESC) AS dense_rank
+	FROM sales
+	       
+
+
+	- ROW_NUMBER() asigna valores únicos para cada fila, sin importar si hay valores duplicados
+
+	- RANK() asigna el mismo rank si hay valores duplicados, pero se salta un espacio en la secuencia.
+
+	- DENSE_RANK() asigna el mismo rank si hay valores duplicados, pero no se salta la secuencia
